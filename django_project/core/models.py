@@ -22,6 +22,6 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     @property
     def is_updated(self) -> bool:
-        return self.inserted_at - self.updated_at > timedelta(minutes=1) 
+        return self.updated_at - self.inserted_at > timedelta(minutes=1) 
 
         
