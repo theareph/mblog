@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.shortcuts import redirect, render
+from django.templatetags.static import static
 
 from . import models
 
@@ -18,5 +19,7 @@ def homepage(request):
 
 def favicon(request):
     return redirect(
-        request.build_absolute_uri(f"{settings.STATIC_URL}favicon.ico"),
+        static(
+            "favicon.ico",
+        ),
     )
