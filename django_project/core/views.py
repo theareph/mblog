@@ -10,7 +10,9 @@ def homepage(request):
     return render(
         request,
         "core/index.html",
-        {"posts": models.Post.objects.all()},
+        {
+            "posts": models.Post.objects.order_by("-inserted_at")[:10],
+        },
     )
 
 
